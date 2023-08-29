@@ -1,11 +1,10 @@
 export function isValid(s: string): boolean {
+  if(s.length % 2 !== 0) {
+    return false;
+  }
+
   let chr: string;
-  const parMap:Map<string,string> = new Map();
-
-  parMap.set("(",")");
-  parMap.set("{","}");
-  parMap.set("[","]");
-
+  const parMap:Map<string,string> = new Map([["(",")"], ["{","}"], ["[","]"]]);
   const openStack: Array<string> = [];
   let lastOpen: string;
 
