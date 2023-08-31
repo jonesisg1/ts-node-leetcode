@@ -18,9 +18,9 @@ export function longestConsecutive(nums: number[]): number {
   let best: number = 0;
 
   let currentCount:number;
-  for(let i = 0; i < nums.length; i++) {
-    if (numSet.has(nums[i] - 1) === false) {
-      currentCount = countSeq(numSet, nums[i]);
+  for(const num of nums) {
+    if (numSet.has(num - 1) === false) {
+      currentCount = countSeq(numSet, num);
       best = (currentCount > best) ? currentCount : best;
       // console.log(`Best ${best}`);
     }
