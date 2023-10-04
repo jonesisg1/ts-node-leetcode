@@ -1,6 +1,6 @@
 import express from 'express';
-import { postContainsDuplicate } from './containsDuplicates';
-import { postAnagram } from './anagram';
+import { postContainsDuplicate } from './arrays-and-hashing/containsDuplicates';
+import { postAnagram } from './arrays-and-hashing/anagram';
 import { postTwoSum } from './twoSum';
 
 const app = express();
