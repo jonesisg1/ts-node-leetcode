@@ -7,23 +7,31 @@ export function carFleet(target: number, position: number[], speed: number[]): n
 
   let fleetCount: number = 1;
 
-  function countFleets(road: number[], current: number): void {
-    if(road.length === 0){
-      return;
-    }
-    // console.log(road);
-    while(road.length > 0) {
-      const next = road.pop() || 0;
-      if(next > current){
-        fleetCount ++;
-        current = next;
-      }
-      // console.log(`${current} - ${next} - ${fleetCount}`);
-    }
-  }
+  let currentTime: number|null = null;
+  // roadArr.reverse();
+  // for(const nextTime of roadArr){
+  //   if(currentTime === null) {
+  //     currentTime = nextTime;
+  //   } else {
+  //     if(nextTime > currentTime) {
+  //       fleetCount++;
+  //       currentTime = nextTime;
+  //     }
+  //   }
+  // }
+  // const found = roadArr.findLast((element) => element);
+  // console.log(found);
 
-  const first = roadArr.pop() || 0;
-  countFleets(roadArr, first)
+  roadArr.findLast((nextTime) => {
+    if(currentTime === null) {
+      currentTime = nextTime;
+    } else {
+      if(nextTime > currentTime) {
+        fleetCount++;
+        currentTime = nextTime;
+      }
+    }
+  });
 
   return fleetCount;
 }
