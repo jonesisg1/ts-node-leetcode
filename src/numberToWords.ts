@@ -71,8 +71,9 @@ export function numberToWords(num: number): string {
     }
     const numStr = num.toString() || '';
     // 1001
-    return bigNumsText(Number(numStr.substring(0, numStr.length - offset)), offset -3) + unitText + ((Number(numStr.substring(numStr.length - offset)) === 0) ? '' : (' ' + bigNumsText(Number(numStr.substring(numStr.length - offset)), offset -3)));
+    const unitStart: number = numStr.length - offset;
+    const newOffset: number = offset - 3;
+    return bigNumsText(Number(numStr.substring(0, unitStart)), newOffset) + unitText + ((Number(numStr.substring(unitStart)) === 0) ? '' : (' ' + bigNumsText(Number(numStr.substring(unitStart)), newOffset)));
   }
-
   return bigNumsText(num, 9);
 }
